@@ -1,0 +1,24 @@
+<div class="messages-container" 
+     data-controller="presence" 
+     data-presence-user-id-value="<%= @current_user.id %>">
+  <div class="messages-sidebar">
+    <div class="sidebar-header">
+      <h2>Direct Messages</h2>
+    </div>
+    
+    <div class="users-list" data-presence-target="usersList">
+      <% @users.each do |user| %>
+        <%= render "user_item", user: user, current_user: @current_user %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="messages-main">
+    <div class="messages-header">
+      <h1>Messages</h1>
+      <p>Select a user to start a conversation</p>
+    </div>
+  </div>
+  
+  <div class="toast-container" data-controller="toast" data-toast-target="container"></div>
+</div>
