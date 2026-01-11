@@ -1,0 +1,16 @@
+<div class="user-item" 
+     data-presence-target="userItem" 
+     data-user-id="<%= user.id %>"
+     data-online="<%= user.online %>">
+  <div class="user-avatar">
+    <img src="<%= user.avatar %>" alt="<%= user.name %>" class="avatar-img">
+    <span class="status-indicator <%= user.online ? 'online' : 'offline' %>" 
+          data-presence-target="statusIndicator"></span>
+  </div>
+  <div class="user-info">
+    <div class="user-name"><%= user.name %></div>
+    <div class="user-status" data-presence-target="statusText">
+      <%= user.online ? 'Online' : 'Offline' %>
+    </div>
+  </div>
+</div>

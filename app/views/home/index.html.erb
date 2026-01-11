@@ -1,0 +1,23 @@
+<div class="home-container" data-controller="name-entry">
+  <div class="home-card">
+    <h1>Welcome to Slack-like Chat</h1>
+    <p>Enter your name to get started</p>
+    
+    <%= form_with model: User.new, url: users_path, local: true, data: { name_entry_target: "form" } do |f| %>
+      <div class="form-group">
+        <%= f.text_field :name, 
+            placeholder: "Enter your name", 
+            required: true,
+            autofocus: true,
+            class: "form-input",
+            data: { name_entry_target: "nameInput", action: "keydown->name-entry#handleKeydown" } %>
+      </div>
+      
+      <%= f.hidden_field :avatar_url, data: { name_entry_target: "avatarUrl" } %>
+      
+      <div class="form-actions">
+        <%= f.submit "Join", class: "btn btn-primary", data: { name_entry_target: "submitButton" } %>
+      </div>
+    <% end %>
+  </div>
+</div>
